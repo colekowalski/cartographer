@@ -1,18 +1,17 @@
-from django.shortcuts import get_object_or_404, render, redirect
-from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import redirect
 from django.contrib.admin.models import LogEntry
-from django.urls import reverse
 from django.contrib import admin, messages
 
-from nmaper import views, models
+from cartographer.nmaper import models
 
 admin.site.register(models.NmapScan)
 admin.site.register(models.NmapProfile)
 
+
 def clear_logs(request):
     """Clear admin activity logs if user has permissions"""
 
-    if not request.user.is_authenticated(): # should be applied to anything under /console
+    if not request.user.is_authenticated():  # should be applied to anything under /console
         return redirect('login')
 
     if request.user.has_perm('admin.delete_logentry'):
