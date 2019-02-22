@@ -1,6 +1,6 @@
 #INSTALLATION
 #Prerequisites
-- Django (Tested on Django 1.9)
+- Django (Tested on Django 2.1)
 If you do not have Django installed use: `pip install Django`
 - lxml
 Install it with `pip install lxml`
@@ -8,7 +8,7 @@ Install it with `pip install lxml`
 ##Linux/OSX
 - Download the code from this repository.
 ```
-git clone https://github.com/cldrn/rainmap-lite
+git clone https://github.com/colekowalski/cartographer
 ```
 - Update BASE_URL, SMTP_USER, SMTP_PASS, SMTP_SERVER and SMTP_PORT in nmaper-cronjob.py with your base URL and SMTP credentials to receive email alerts.  
 - Create the database schema 
@@ -28,7 +28,7 @@ python manage.py loaddata nmapprofiles
 python manage.py runserver 0.0.0.0:8080
 ```
 ##Adding the first admin user
-For security RainmapLite does not have any default administrative user out of box. You need to create one by running the following command:
+For security Cartographer does not have any default administrative user out of box. You need to create one by running the following command:
 ```
 python manage.py createsuperuser
 ```
