@@ -1,4 +1,4 @@
-"""scandere URL Configuration
+"""cartographer URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -14,13 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from nmaper import views
-from nmaper.admin import views as adm_views
-from django.conf.urls import url, include
+from nmaper.admin import views as admin_views
+from django.conf.urls import url
 from django.contrib import admin
-from django.contrib.auth import views as views_django
+from django.contrib.auth import views as auth_views
+from django.urls import include, path
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^console/clear_logs/?$', adm_views.clear_logs, name='clear-logs'),
+    url(r'^console/clear_logs/?$', admin_views.clear_logs, name='clear-logs'),
     url(r'^console/', admin.site.urls),
-    url(r'^login/$', views_django.login, name='login')
+    url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
 ]

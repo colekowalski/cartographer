@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.admin.models import LogEntry
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib import admin, messages
 
 from nmaper import views, models
